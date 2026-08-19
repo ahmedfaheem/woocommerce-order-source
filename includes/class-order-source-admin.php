@@ -325,32 +325,20 @@ class Admin {
 	 * Hook: woocommerce_admin_order_preview_start
 	 *
 	 * Renders source inside the order preview modal HTML template.
-	 * Supports WC versions that pass $order_id and those that don't.
+	 * This hook fires when the Backbone template is generated on page load,
+	 * NOT during the AJAX request. Therefore, we output Backbone tags
+	 * `{{{ data.wcos_source_html }}}` which will be populated from the AJAX data.
 	 *
-	 * @param int $order_id  Passed by WC 7.x+ (may be 0 in older versions).
+	 * @param int $order_id  Passed by WC (typically 0 or empty for the template).
 	 */
 	public function render_source_in_order_preview( $order_id = 0 ): void {
-		// Fallback: read order ID from the AJAX request when not passed directly.
-		if ( empty( $order_id ) ) {
-			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-			$order_id = isset( $_REQUEST['order_id'] ) ? absint( $_REQUEST['order_id'] ) : 0;
-		}
-
-		if ( ! $order_id ) {
-			return;
-		}
-
-		$order = wc_get_order( $order_id );
-		if ( ! $order ) {
-			return;
-		}
-
 		?>
-		<div class="wc-order-preview-source">
-			<strong><?php esc_html_e( 'Source', 'wc-order-source' ); ?></strong>
-			<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			<?php echo Renderer::render( $order ); ?>
-		</div>
+		<# if ( data.wcos_source_html ) { #>
+			<div class="wc-order-preview-source" style="display:flex; align-items:center; gap:8px; padding:8px 16px; border-top:1px solid #f0f0f0; font-size:13px; margin-bottom: 8px;">
+				<strong style="flex: 0 0 80px; color: #646970; font-weight: 500;"><?php esc_html_e( 'Source', 'wc-order-source' ); ?></strong>
+				{{{ data.wcos_source_html }}}
+			</div>
+		<# } #>
 		<?php
 	}
 
