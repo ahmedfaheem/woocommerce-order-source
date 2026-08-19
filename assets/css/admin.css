@@ -1,0 +1,132 @@
+/*
+ * WooCommerce Order Source Tracker – Admin Styles
+ *
+ * Only loaded on WooCommerce order pages.
+ * No badges, no pills, no background colors – clean professional UI.
+ */
+
+/* ── Source row (icon + label) ─────────────────────────────── */
+.wc-order-source {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Icon: square, fixed, never expands */
+.wc-order-source__icon {
+    display: block;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    vertical-align: middle;
+}
+
+/* TikTok: brand-approximate dark colour */
+.wc-order-source--tiktok .wc-order-source__icon {
+    color: #010101;
+}
+
+/* Facebook Ads: brand blue */
+.wc-order-source--facebook .wc-order-source__icon {
+    color: #1877f2;
+}
+
+/* Website: neutral admin grey */
+.wc-order-source--website .wc-order-source__icon {
+    color: #646970;
+}
+
+/* Label */
+.wc-order-source__label {
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+/* ── Orders list column ─────────────────────────────────────── */
+.column-order_source {
+    width: 140px;
+}
+
+/* ── Full order page meta-box ───────────────────────────────── */
+.wcos-meta-box {
+    padding: 2px 0;
+}
+
+.wcos-meta-box__source {
+    margin-bottom: 10px;
+}
+
+.wcos-utm-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.wcos-utm-table th,
+.wcos-utm-table td {
+    padding: 4px 0;
+    vertical-align: top;
+    text-align: left;
+    border: none;
+}
+
+.wcos-utm-table th {
+    color: #646970;
+    font-weight: 400;
+    white-space: nowrap;
+    padding-right: 10px;
+    width: 40%;
+}
+
+.wcos-utm-table td {
+    word-break: break-all;
+    color: #1d2327;
+}
+
+/* ── Order Preview source row ───────────────────────────────── */
+.wc-order-preview-source {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 13px;
+}
+
+.wc-order-preview-source strong {
+    flex: 0 0 80px;
+    color: #646970;
+    font-weight: 500;
+}
+
+/* ── Responsive / mobile ────────────────────────────────────── */
+@media screen and (max-width: 782px) {
+    /* WooCommerce collapses table rows to cards on mobile.
+       Ensure source cell behaves correctly in card layout. */
+    .wc-order-source {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .wc-order-source__icon {
+        width: 16px;
+        height: 16px;
+        flex: 0 0 16px;
+    }
+
+    .column-order_source {
+        /* WC adds data-title for responsive tables; let it flow naturally. */
+        width: auto;
+    }
+
+    .wc-order-preview-source {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+}
