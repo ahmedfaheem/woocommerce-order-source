@@ -98,12 +98,12 @@ class Admin {
 			$new[ $key ] = $label;
 			// Insert after 'order_status'.
 			if ( 'order_status' === $key ) {
-				$new['order_source'] = esc_html__( 'Source', 'wc-order-source' );
+				$new['order_source'] = esc_html__( 'المصدر', 'wc-order-source' );
 			}
 		}
 		// Fallback: if 'order_status' wasn't found, append.
 		if ( ! isset( $new['order_source'] ) ) {
-			$new['order_source'] = esc_html__( 'Source', 'wc-order-source' );
+			$new['order_source'] = esc_html__( 'المصدر', 'wc-order-source' );
 		}
 		return $new;
 	}
@@ -219,10 +219,10 @@ class Admin {
 		$current = isset( $_GET['_order_source_filter'] ) ? sanitize_text_field( wp_unslash( $_GET['_order_source_filter'] ) ) : '';
 
 		$options = [
-			''         => __( 'All Sources',   'wc-order-source' ),
-			'tiktok'   => __( 'TikTok',         'wc-order-source' ),
-			'facebook' => __( 'Facebook',       'wc-order-source' ),
-			'website'  => __( 'Website Direct', 'wc-order-source' ),
+			''         => __( 'كل قنوات المبيعات',   'wc-order-source' ),
+			'tiktok'   => __( 'تيك توك',         'wc-order-source' ),
+			'facebook' => __( 'فيسبوك',       'wc-order-source' ),
+			'website'  => __( 'مباشر من الموقع', 'wc-order-source' ),
 		];
 
 		echo '<select name="_order_source_filter" id="wcos-source-filter">';
@@ -260,7 +260,7 @@ class Admin {
 		foreach ( $screens as $screen ) {
 			add_meta_box(
 				'wc-order-source-info',
-				__( 'Order Source', 'wc-order-source' ),
+				__( 'مصدر الطلب', 'wc-order-source' ),
 				[ $this, 'render_source_meta_box' ],
 				$screen,
 				'side',
@@ -335,7 +335,7 @@ class Admin {
 		?>
 		<# if ( data.wcos_source_html ) { #>
 			<div class="wc-order-preview-source" style="display:flex; align-items:center; gap:8px; padding:8px 16px; border-top:1px solid #f0f0f0; font-size:13px; margin-bottom: 8px;">
-				<strong style="flex: 0 0 80px; color: #646970; font-weight: 500;"><?php esc_html_e( 'Source', 'wc-order-source' ); ?></strong>
+				<strong style="flex: 0 0 80px; color: #646970; font-weight: 500;"><?php esc_html_e( 'المصدر', 'wc-order-source' ); ?></strong>
 				{{{ data.wcos_source_html }}}
 			</div>
 		<# } #>
@@ -354,7 +354,7 @@ class Admin {
 	 */
 	public function inject_source_in_preview_data( array $data, \WC_Order $order ): array {
 		$data['wcos_source_html'] = Renderer::render( $order );
-		$data['wcos_source_label'] = esc_html__( 'Source', 'wc-order-source' );
+		$data['wcos_source_label'] = esc_html__( 'المصدر', 'wc-order-source' );
 		return $data;
 	}
 }

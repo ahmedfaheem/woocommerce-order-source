@@ -63,6 +63,16 @@ class Tracker {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$raw_utm_source = isset( $_GET['utm_source'] ) ? sanitize_text_field( wp_unslash( $_GET['utm_source'] ) ) : '';
 
+		// Fallback: If no UTM is provided, check the HTTP Referer.
+		if ( '' === $raw_utm_source && isset( $_SERVER['HTTP_REFERER'] ) ) {
+			$referer = sanitize_text_field( wp_unslash( $_SERVER['HTTP_REFERER'] ) );
+			if ( strpos( $referer, 'facebook.com' ) !== false || strpos( $referer, 'instagram.com' ) !== false ) {
+				$raw_utm_source = 'facebook';
+			} elseif ( strpos( $referer, 'tiktok.com' ) !== false ) {
+				$raw_utm_source = 'tiktok';
+			}
+		}
+
 		if ( '' === $raw_utm_source ) {
 			return; // Nothing to capture this request.
 		}

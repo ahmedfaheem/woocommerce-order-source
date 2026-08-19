@@ -91,12 +91,12 @@ class Renderer {
 	 */
 	public static function get_label( string $source ): string {
 		$labels = [
-			'tiktok'   => __( 'TikTok',        'wc-order-source' ),
-			'facebook' => __( 'Facebook',       'wc-order-source' ),
-			'website'  => __( 'Website Direct', 'wc-order-source' ),
+			'tiktok'   => __( 'تيك توك',        'wc-order-source' ),
+			'facebook' => __( 'فيسبوك',       'wc-order-source' ),
+			'website'  => __( 'مباشر من الموقع', 'wc-order-source' ),
 		];
 
-		return $labels[ $source ] ?? __( 'Website Direct', 'wc-order-source' );
+		return $labels[ $source ] ?? __( 'مباشر من الموقع', 'wc-order-source' );
 	}
 
 	/**
