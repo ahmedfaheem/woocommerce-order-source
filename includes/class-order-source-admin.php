@@ -219,7 +219,7 @@ class Admin {
 		$current = isset( $_GET['_order_source_filter'] ) ? sanitize_text_field( wp_unslash( $_GET['_order_source_filter'] ) ) : '';
 
 		$options = [
-			''         => __( 'كل قنوات المبيعات',   'wc-order-source' ),
+''         => __( 'كل المصادر',   'wc-order-source' ),
 			'tiktok'   => __( 'تيك توك',         'wc-order-source' ),
 			'facebook' => __( 'فيسبوك',       'wc-order-source' ),
 			'website'  => __( 'مباشر من الموقع', 'wc-order-source' ),
@@ -334,8 +334,8 @@ class Admin {
 	public function render_source_in_order_preview( $order_id = 0 ): void {
 		?>
 		<# if ( data.wcos_source_html ) { #>
-			<div class="wc-order-preview-source" style="display:flex; align-items:center; gap:8px; padding:8px 16px; border-top:1px solid #f0f0f0; font-size:13px; margin-bottom: 8px;">
-				<strong style="flex: 0 0 80px; color: #646970; font-weight: 500;"><?php esc_html_e( 'المصدر', 'wc-order-source' ); ?></strong>
+			<div class="wc-order-preview-source-badge" style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; background:#f0f0f1; border:1px solid #c3c4c7; border-radius:4px 0px 0px 4px; font-size:13px; color:#1d2327; margin-bottom:16px;">
+				<strong style="font-weight: 600; margin-left:4px;"><?php esc_html_e( 'مصدر الطلب:', 'wc-order-source' ); ?></strong>
 				{{{ data.wcos_source_html }}}
 			</div>
 		<# } #>
