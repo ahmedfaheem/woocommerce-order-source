@@ -10,9 +10,6 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Tracks and displays the advertising/source channel (TikTok Ads, Facebook Ads, Website Direct) for every WooCommerce order. Fully automatic UTM-based attribution with HTTP Referer fallback.
 
-**Plugin created by Ahmed Faheem, Software Engineer**
-* WhatsApp: +201099492053
-* Email: a7medfaheem@gmail.com
 
 == Description ==
 
@@ -44,6 +41,13 @@ If you forget to add them, the plugin will use the HTTP Referer fallback to try 
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Start using UTM parameters in your ad campaigns.
 4. Go to WooCommerce > Orders to see the new "المصدر" (Source) column.
+
+== Developer & Contact ==
+
+**Plugin created by Ahmed Faheem, Software Engineer**
+
+* WhatsApp: [+201099492053](https://wa.me/201099492053)
+* Email: a7medfaheem@gmail.com
 
 == Changelog ==
 
