@@ -63,18 +63,7 @@ class Tracker {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$raw_utm_source = isset( $_GET['utm_source'] ) ? sanitize_text_field( wp_unslash( $_GET['utm_source'] ) ) : '';
 
-		// Log traffic to help diagnose unrecognised sources.
-		if ( function_exists( 'wc_get_logger' ) ) {
-			$logger = wc_get_logger();
-			$log_msg = sprintf(
-				'URL: %s | Referer: %s | UTM Source: %s | User Agent: %s',
-				isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : 'none',
-				isset( $_SERVER['HTTP_REFERER'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) : 'none',
-				$raw_utm_source,
-				isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : 'none'
-			);
-			$logger->info( $log_msg, [ 'source' => 'woocommerce-order-source-traffic' ] );
-		}
+
 
 		// Fallback: If no UTM is provided, check click IDs and HTTP Referer.
 		if ( '' === $raw_utm_source ) {
