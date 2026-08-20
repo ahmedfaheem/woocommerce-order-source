@@ -1,4 +1,4 @@
-﻿=== WooCommerce Order Source Tracker ===
+=== WooCommerce Order Source Tracker ===
 Contributors: Ahmed Faheem
 Tags: woocommerce, order tracking, utm, facebook ads, tiktok ads, hpos
 Requires at least: 6.0
@@ -9,6 +9,10 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Tracks and displays the advertising/source channel (TikTok Ads, Facebook Ads, Website Direct) for every WooCommerce order. Fully automatic UTM-based attribution with HTTP Referer fallback.
+
+**Plugin created by Ahmed Faheem, Software Engineer**
+* WhatsApp: +201099492053
+* Email: a7medfaheem@gmail.com
 
 == Description ==
 
