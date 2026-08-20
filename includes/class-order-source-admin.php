@@ -96,12 +96,12 @@ class Admin {
 		$new = [];
 		foreach ( $columns as $key => $label ) {
 			$new[ $key ] = $label;
-			// Insert after 'order_status'.
-			if ( 'order_status' === $key ) {
+			// Insert after 'order_notes'.
+			if ( 'order_notes' === $key ) {
 				$new['order_source'] = esc_html__( 'المصدر', 'wc-order-source' );
 			}
 		}
-		// Fallback: if 'order_status' wasn't found, append.
+		// Fallback: if 'order_notes' wasn't found, append.
 		if ( ! isset( $new['order_source'] ) ) {
 			$new['order_source'] = esc_html__( 'المصدر', 'wc-order-source' );
 		}
@@ -119,7 +119,7 @@ class Admin {
 			return;
 		}
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo Renderer::render( $order );
+		echo Renderer::render( $order, true );
 	}
 
 	/**
@@ -133,7 +133,7 @@ class Admin {
 			return;
 		}
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo Renderer::render( $post_id );
+		echo Renderer::render( $post_id, true );
 	}
 
 	// ─────────────────────────────────────────────────────────────

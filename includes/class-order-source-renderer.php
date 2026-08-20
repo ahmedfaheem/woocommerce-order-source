@@ -76,10 +76,10 @@ class Renderer {
 		$label = esc_html( self::get_label( $source ) );
 
 		return sprintf(
-			'<span class="wc-order-source wc-order-source--%s">%s<span class="wc-order-source__label">%s</span></span>',
+			'<span class="wc-order-source wc-order-source--%s" title="%s">%s</span>',
 			esc_attr( $source ),
-			$icon,
-			$label
+			$label,
+			$icon
 		);
 	}
 
@@ -112,6 +112,10 @@ class Renderer {
 			case 'facebook':
 				return self::icon_facebook();
 			default:
+				$site_icon = get_site_icon_url( 32 );
+				if ( $site_icon ) {
+					return sprintf( '<img src="%s" class="wc-order-source__icon" aria-hidden="true" style="width:20px;height:20px;border-radius:4px;" alt="" />', esc_url( $site_icon ) );
+				}
 				return self::icon_globe();
 		}
 	}

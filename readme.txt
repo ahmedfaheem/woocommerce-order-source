@@ -1,5 +1,5 @@
 ﻿=== WooCommerce Order Source Tracker ===
-Contributors: ahmedfaheem
+Contributors: Ahmed Faheem
 Tags: woocommerce, order tracking, utm, facebook ads, tiktok ads, hpos
 Requires at least: 6.0
 Tested up to: 6.4
