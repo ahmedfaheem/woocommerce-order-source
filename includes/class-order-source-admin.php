@@ -219,10 +219,11 @@ class Admin {
 		$current = isset( $_GET['_order_source_filter'] ) ? sanitize_text_field( wp_unslash( $_GET['_order_source_filter'] ) ) : '';
 
 		$options = [
-''         => __( 'كل المصادر',   'wc-order-source' ),
-			'tiktok'   => __( 'تيك توك',         'wc-order-source' ),
-			'facebook' => __( 'فيسبوك',       'wc-order-source' ),
-			'website'  => __( 'مباشر من الموقع', 'wc-order-source' ),
+''         => __( 'كل المصادر',    'wc-order-source' ),
+			'tiktok'   => __( 'تيك توك',          'wc-order-source' ),
+			'facebook' => __( 'فيسبوك',        'wc-order-source' ),
+			'google'   => __( 'جوجل',             'wc-order-source' ),
+			'website'  => __( 'مباشر من الموقع',  'wc-order-source' ),
 		];
 
 		echo '<select name="_order_source_filter" id="wcos-source-filter">';

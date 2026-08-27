@@ -73,12 +73,17 @@ class Tracker {
 			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			} elseif ( isset( $_GET['ttclid'] ) ) {
 				$raw_utm_source = 'tiktok';
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			} elseif ( isset( $_GET['gclid'] ) ) {
+				$raw_utm_source = 'google';
 			} elseif ( isset( $_SERVER['HTTP_REFERER'] ) ) {
 				$referer = sanitize_text_field( wp_unslash( $_SERVER['HTTP_REFERER'] ) );
 				if ( strpos( $referer, 'facebook.com' ) !== false || strpos( $referer, 'instagram.com' ) !== false ) {
 					$raw_utm_source = 'facebook';
 				} elseif ( strpos( $referer, 'tiktok.com' ) !== false ) {
 					$raw_utm_source = 'tiktok';
+				} elseif ( strpos( $referer, 'google.com' ) !== false ) {
+					$raw_utm_source = 'google';
 				}
 			}
 		}
@@ -270,6 +275,10 @@ class Tracker {
 			case 'instagram':
 			case 'an': // Meta Audience Network
 				return 'facebook';
+			case 'google':
+			case 'google-ads':
+			case 'googleads':
+				return 'google';
 			default:
 				return 'website';
 		}

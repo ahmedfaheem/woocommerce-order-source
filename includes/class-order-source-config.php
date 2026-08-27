@@ -23,7 +23,11 @@ class Config {
 	// display as "Website Direct" (the renderer's safe fallback). Do NOT
 	// automatically migrate those records, as the correct attribution is
 	// unknown.
-	const SOURCES = [ 'tiktok', 'facebook', 'website' ];
+	// tiktok   : visitor arrived via a TikTok Ad (utm_source=tiktok)
+	// facebook : visitor arrived via a Facebook Ad (utm_source=facebook)
+	// google   : visitor arrived via a Google Ad (utm_source=google / gclid)
+	// website  : direct / organic / unknown traffic — the default fallback
+	const SOURCES = [ 'tiktok', 'facebook', 'google', 'website' ];
 
 	// ── Order meta keys ───────────────────────────────────────────
 	const META_SOURCE       = '_order_source';
